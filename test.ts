@@ -90,3 +90,10 @@ function isPalindrome(x: number): boolean {
   if ( x === rev ) return true
   else return false
 };
+
+// Given two strings needle and haystack, return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
+
+function strStr(haystack: string, needle: string): number {
+    let output = haystack.indexOf(needle)
+    return output
+};
