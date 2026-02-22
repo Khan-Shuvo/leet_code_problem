@@ -72,3 +72,21 @@ function createCounter(n: number): () => number {
     return count++
   }
 }
+
+
+// Given an integer x, return true if x is a palindrome, and false otherwise.
+
+// solution
+
+function isPalindrome(x: number): boolean {
+  let temp = x
+  let rev = 0
+  if (x < 0) return false
+  while (temp > 0){
+    let digit = temp % 10
+    rev = rev *10 + digit
+    temp = Math.floor(temp/10)
+  }
+  if ( x === rev ) return true
+  else return false
+};
