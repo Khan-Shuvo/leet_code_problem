@@ -82,18 +82,41 @@ function isPalindrome(x: number): boolean {
   let temp = x
   let rev = 0
   if (x < 0) return false
-  while (temp > 0){
+  while (temp > 0) {
     let digit = temp % 10
-    rev = rev *10 + digit
-    temp = Math.floor(temp/10)
+    rev = rev * 10 + digit
+    temp = Math.floor(temp / 10)
   }
-  if ( x === rev ) return true
+  if (x === rev) return true
   else return false
 };
 
 // Given two strings needle and haystack, return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
 
 function strStr(haystack: string, needle: string): number {
-    let output = haystack.indexOf(needle)
-    return output
+  let output = haystack.indexOf(needle)
+  return output
 };
+
+// Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
+
+// You must write an algorithm with O(log n) runtime complexity.
+
+
+function searchInsert(nums: number[], target: number): number {
+  let left = 0
+  let right = nums.length - 1
+
+  while (left <= right) {
+    let mid = Math.floor((left + right) / 2)
+
+    if(nums[mid] === target){ 
+      return mid
+    }else if(nums[mid]< target){
+      left = mid + 1
+    }else{
+      right = mid - 1
+    }
+  }
+  return left
+}
