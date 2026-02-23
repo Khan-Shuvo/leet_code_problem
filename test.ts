@@ -110,11 +110,11 @@ function searchInsert(nums: number[], target: number): number {
   while (left <= right) {
     let mid = Math.floor((left + right) / 2)
 
-    if(nums[mid] === target){ 
+    if (nums[mid] === target) {
       return mid
-    }else if(nums[mid]< target){
+    } else if (nums[mid] < target) {
       left = mid + 1
-    }else{
+    } else {
       right = mid - 1
     }
   }
@@ -123,7 +123,24 @@ function searchInsert(nums: number[], target: number): number {
 
 
 function lengthOfLastWord(s: string): number {
-    let str = s.trim().split(' ')
-    return str[str.length-1].length
-    
+  let str = s.trim().split(' ')
+  return str[str.length - 1].length
+
+};
+
+
+// You are given a large integer represented as an integer array digits, where each digits[i] is the ith digit of the integer. The digits are ordered from most significant to least significant in left-to-right order. The large integer does not contain any leading 0's.
+
+// Increment the large integer by one and return the resulting array of digits.
+
+function plusOne(digits: number[]): number[] {
+  for (let i = digits.length - 1; i >= 0; i--) {
+    if (digits[i] < 9) {
+      digits[i]++
+      return digits
+    }
+    digits[i] = 0
+  }
+  digits.unshift(1)
+  return digits
 };
