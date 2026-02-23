@@ -187,8 +187,28 @@ function mySqrt(x: number): number {
       answer = mid
       left = mid + 1
     } else {
-      right = mid -1
+      right = mid - 1
     }
   }
   return answer
+};
+
+
+// You are climbing a staircase. It takes n steps to reach the top.
+
+// Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
+
+function climbStairs(n: number): number {
+  if (n <= 2) return n
+
+  let first: number = 1
+  let second: number = 2
+
+  for (let i = 3; i <= n; i++){
+    let current = first + second
+
+    first = second
+    second = current
+  }
+  return second
 };
