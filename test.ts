@@ -144,3 +144,29 @@ function plusOne(digits: number[]): number[] {
   digits.unshift(1)
   return digits
 };
+
+
+// Given two binary strings a and b, return their sum as a binary string.
+
+function addBinary(a: string, b: string): string {
+  let i: number = a.length - 1
+  let j: number = b.length - 1
+  let carry: number = 0
+  let result: string = ''
+
+  while (i >= 0 || j >= 0 || carry != 0) {
+    let sum = carry
+    if (i >= 0) {
+      sum += Number(a[i])
+      i--
+    }
+    if (j >= 0) {
+      sum += Number(b[j])
+      j--
+    }
+    let digit = sum % 2
+    carry = Math.floor(sum / 2)
+    result = digit + result
+  }
+  return result
+};
