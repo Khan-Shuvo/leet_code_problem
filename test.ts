@@ -170,3 +170,25 @@ function addBinary(a: string, b: string): string {
   }
   return result
 };
+
+
+// Given a non-negative integer x, return the square root of x rounded down to the nearest integer. The returned integer should be non-negative as well.
+
+function mySqrt(x: number): number {
+  if (x < 2)
+    return x
+  let right: number = x
+  let left: number = 1
+  let answer: number = 0
+
+  while (left <= right) {
+    let mid = Math.floor((right + left) / 2)
+    if (mid <= x / mid) {
+      answer = mid
+      left = mid + 1
+    } else {
+      right = mid -1
+    }
+  }
+  return answer
+};
