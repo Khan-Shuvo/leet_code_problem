@@ -212,3 +212,22 @@ function climbStairs(n: number): number {
   }
   return second
 };
+
+
+// Given a string s, find the length of the longest substring without duplicate characters.
+
+function lengthOfLongestSubstring(s: string): number {
+   let left = 0
+   let set = new Set<string>() 
+   let maxlenght = 0
+
+   for (let right = 0; right < s.length; right++){
+    while(set.has(s[right])){
+      set.delete(s[left])
+      left++
+    }
+    set.add(s[right])
+    maxlenght = Math.max(maxlenght, right - left + 1)
+   }
+   return maxlenght
+};
