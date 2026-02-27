@@ -204,7 +204,7 @@ function climbStairs(n: number): number {
   let first: number = 1
   let second: number = 2
 
-  for (let i = 3; i <= n; i++){
+  for (let i = 3; i <= n; i++) {
     let current = first + second
 
     first = second
@@ -217,17 +217,34 @@ function climbStairs(n: number): number {
 // Given a string s, find the length of the longest substring without duplicate characters.
 
 function lengthOfLongestSubstring(s: string): number {
-   let left = 0
-   let set = new Set<string>() 
-   let maxlenght = 0
+  let left = 0
+  let set = new Set<string>()
+  let maxlenght = 0
 
-   for (let right = 0; right < s.length; right++){
-    while(set.has(s[right])){
+  for (let right = 0; right < s.length; right++) {
+    while (set.has(s[right])) {
       set.delete(s[left])
       left++
     }
     set.add(s[right])
     maxlenght = Math.max(maxlenght, right - left + 1)
-   }
-   return maxlenght
+  }
+  return maxlenght
+};
+
+// Given a signed 32-bit integer x, return x with its digits reversed. If reversing x causes the value to go outside the signed 32-bit integer range [-231, 231 - 1], then return 0.
+
+function reverse(x: number): number {
+  let num: number = x
+  let rev: number = 0
+  while (num !== 0) {
+    let digit = num % 10
+    rev = rev * 10 + digit
+    num = Math.trunc(num / 10)
+  }
+  if (rev < -2147483648 || rev > 2147483647) {
+    return 0
+  }
+
+  return rev
 };
